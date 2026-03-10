@@ -1,0 +1,78 @@
+<body>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Full Width Evenly Spaced Navbar ===== */
+
+nav {
+    width: 100%;
+    padding: 18px 0;
+    background: linear-gradient(90deg, #667eea, #764ba2, #6a11cb);
+    display: flex;
+    justify-content: space-evenly;   /* ✅ evenly spaced */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Navbar Links */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+nav a:hover {
+    color: #ffe600;
+}
+
+/* Animated underline */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: #ffe600;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Content spacing */
+.container {
+    padding: 40px;
+}
+
+</style>
+
+{% block navbar %}
+<nav>
+    <a href="/dashboard/">Dashboard</a>
+    <a href="/packages/">Packages</a>
+    <a href="/profile/">Profile</a>
+    <a href="/payments/">Payments</a>
+    <a href="/logout/">Logout</a>
+</nav>
+{% endblock %}
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>

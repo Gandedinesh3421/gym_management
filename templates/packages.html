@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+
+/* 🔥 Animated Gradient Background */
+body {
+    background: linear-gradient(-45deg, #141e30, #243b55, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    color: white;
+    margin: 40px 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+/* Container Grid */
+.package-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* 3D Glass Card */
+.card {
+    width: 320px;
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translateY(-15px) rotateY(5deg);
+    background: rgba(255,255,255,0.2);
+}
+
+/* Package Name */
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Price */
+.card p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Dropdown */
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    color: #2575fc;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2575fc;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Smooth Animation on Load */
+.card {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+</style>
+
+<h2 class="page-title">🏋️ Select Package & Trainer</h2>
+
+<div class="package-wrapper">
+
+{% for p in packages %}
+
+<div class="card">
+
+<h3>{{p.name}}</h3>
+
+<p>💰 Package Price: ₹{{p.price}}</p>
+
+<form method="POST" action="/packages/buy/{{p.id}}/">
+
+{% csrf_token %}
+
+<label>👨‍🏫 Choose Trainer:</label>
+
+<select name="trainer">
+
+<option value="">No Trainer</option>
+
+{% for t in trainers %}
+<option value="{{t.id}}">
+{{t.name}} - ₹{{t.price}}
+</option>
+{% endfor %}
+
+</select>
+
+<button>🚀 Buy Now</button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

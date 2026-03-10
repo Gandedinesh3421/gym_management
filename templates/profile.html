@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+
+/* Animated Gradient Background */
+body {
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Center Container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    perspective: 1000px;
+}
+
+/* 3D Card */
+.profile-card-modern {
+    width: 420px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+/* Hover 3D Effect */
+.profile-card-modern:hover {
+    transform: rotateY(8deg) rotateX(8deg);
+}
+
+/* Avatar */
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: white;
+    color: #2a5298;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 90px;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Details */
+.profile-details {
+    margin-top: 20px;
+}
+
+.info-card {
+    background: rgba(255,255,255,0.2);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.05);
+}
+
+/* Button */
+.btn-modern {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: white;
+    color: #2575fc;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-modern:hover {
+    background: #2575fc;
+    color: white;
+    transform: scale(1.1);
+}
+
+</style>
+
+<div class="profile-container">
+
+    <div class="profile-card-modern">
+
+        <div class="profile-avatar">
+            {{ request.user.username|slice:":1"|upper }}
+        </div>
+
+        <h2>{{ request.user.username }}</h2>
+        <p>🏋️ Premium Gym Member</p>
+
+        <div class="profile-details">
+
+            <div class="info-card">
+                <strong>Email</strong><br>
+                {{ request.user.email }}
+            </div>
+
+            <div class="info-card">
+                <strong>Phone</strong><br>
+                {{ profile.phone }}
+            </div>
+
+        </div>
+
+        <a href="/dashboard/" class="btn-modern">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

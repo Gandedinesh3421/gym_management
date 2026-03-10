@@ -1,0 +1,199 @@
+body{
+
+font-family: Arial;
+
+background:#f4f6f8;
+
+margin:0;
+
+}
+
+.navbar{
+
+background:#111;
+
+color:white;
+
+padding:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+.navbar a{
+
+color:white;
+
+margin:10px;
+
+text-decoration:none;
+
+}
+
+.container{
+
+padding:30px;
+
+}
+
+.card{
+
+background:white;
+
+padding:20px;
+
+margin:20px;
+
+border-radius:10px;
+
+box-shadow:0 0 10px gray;
+
+}
+
+.grid{
+
+display:flex;
+
+gap:20px;
+
+}
+
+.btn{
+
+background:blue;
+
+color:white;
+
+padding:10px;
+
+text-decoration:none;
+
+border:none;
+
+border-radius:5px;
+
+}
+
+input{
+
+display:block;
+
+margin:10px 0;
+
+padding:10px;
+
+width:100%;
+
+}
+body{
+font-family:Arial;
+background:#f4f4f4;
+}
+
+.nav{
+background:black;
+padding:10px;
+}
+
+.nav a{
+color:white;
+margin:10px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:10px;
+}
+/* Modern Profile Design */
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.profile-card-modern {
+    width: 420px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.profile-card-modern:hover {
+    transform: translateY(-8px);
+}
+
+.profile-top {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: white;
+    color: #4e73df;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 80px;
+    margin: 0 auto 15px;
+}
+
+.profile-top h2 {
+    margin: 0;
+}
+
+.profile-top p {
+    opacity: 0.9;
+}
+
+.profile-details {
+    padding: 30px;
+}
+
+.info-card {
+    background: #f8f9fc;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    background: #e2e6f5;
+}
+
+.info-card span {
+    font-size: 12px;
+    color: #888;
+}
+
+.info-card h4 {
+    margin: 5px 0 0;
+}
+
+.profile-actions {
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-modern {
+    background: #4e73df;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-modern:hover {
+    background: #2e59d9;
+}

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+/* Page Background */
+.payments-section {
+    min-height: 100vh;
+    padding: 50px;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    font-family: Arial, sans-serif;
+}
+
+/* Title */
+.payments-title {
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Grid Layout */
+.payments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Payment Card */
+.payment-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+/* Hover Effect */
+.payment-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Text Styles */
+.package {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.amount {
+    font-size: 24px;
+    color: #ffe600;
+    margin-bottom: 8px;
+}
+
+.date {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+<div class="payments-section">
+
+<h2 class="payments-title">💳 Payment History</h2>
+
+<div class="payments-grid">
+
+{% for p in payments %}
+
+<div class="payment-card">
+    <div class="package">{{p.package.name}}</div>
+    <div class="amount">₹{{p.amount}}</div>
+    <div class="date">{{p.payment_date}}</div>
+</div>
+
+{% empty %}
+
+<p style="color:white; text-align:center;">No payments yet.</p>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}
